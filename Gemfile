@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.1.2'
+gem 'bootstrap-sass', '3.3.7'
 gem 'puma', '3.9.1'
 gem 'sass-rails', '5.0.6'
 gem 'uglifier', '3.2.0'
@@ -15,6 +16,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rails-controller-testing', '1.0.2'
   gem 'web-console', '3.5.1'
   gem 'listen', '3.0.8'
   gem 'spring', '2.0.2'
