@@ -1,0 +1,5 @@
+michael:
+  name: Michael Example
+  email: michael@example.com
+#  passwordというcolumnは存在しない
+  password_digest: <%= User.digest('password') %>

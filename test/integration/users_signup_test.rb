@@ -34,9 +34,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "password",
                                          password_confirmation: "password" } }
     end
-    # リダイレクト前のページに遷移する
+    # そのページに実際に移動します。
     follow_redirect!
     assert_template 'users/show'
+    # ログインが成功しているか判定
+    assert is_logged_in?
     # 式がfalseか判定
     assert_not flash.empty?
   end
