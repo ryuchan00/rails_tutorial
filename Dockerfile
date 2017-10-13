@@ -12,3 +12,4 @@ RUN apt-get install -y vim
 RUN apt-get install -y less
 RUN apt-get install -y nano
 RUN apt-get install -y tree
+RUN apt-get install -y tmux
