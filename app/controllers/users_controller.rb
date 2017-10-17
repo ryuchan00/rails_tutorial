@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # 同じアクション内でrender または redirect_to メソッドを複数呼び出すと、エラーになるので、and returnを付ける
     redirect_to root_url and return unless @user.activated
   end
 
