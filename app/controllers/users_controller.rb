@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @microposts = @user.microposts.paginate(page: params[:page])
     # 同じアクション内でrender または redirect_to メソッドを複数呼び出すと、エラーになるので、and returnを付ける
     redirect_to root_url and return unless @user.activated
   end
@@ -67,16 +68,16 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
 
-    # beforeアクション
+    # beforeファルター
 
     # ログイン済みユーザーかどうか確認
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+    # def logged_in_user
+    #   unless logged_in?
+    #     store_location
+    #     flash[:danger] = "Please log in."
+    #     redirect_to login_url
+    #   end
+    # end
 
     # 正しいユーザーかどうか確認
     def correct_user

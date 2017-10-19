@@ -13,3 +13,4 @@ RUN apt-get install -y less
 RUN apt-get install -y nano
 RUN apt-get install -y tree
 RUN apt-get install -y tmux
+RUN apt-get install -y imagemagick --fix-missing
