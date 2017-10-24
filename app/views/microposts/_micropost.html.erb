@@ -2,7 +2,9 @@
   <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content">
-    <%= simple_format(micropost.content) %>
+    <%= p micropost.content%>
+    <%= simple_format(sanitize micropost.content,  attributes: %w(href target)) %>
+    <a href="https://qiita.com" target="blank">Qiita</a>
     <%= image_tag micropost.picture.url if micropost.picture? %>
   </span>
   <span class="timestamp">

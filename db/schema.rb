@@ -15,10 +15,11 @@ ActiveRecord::Schema.define(version: 20171019060635) do
   create_table "microposts", force: :cascade do |t|
     t.text "content"
     t.integer "user_id"
+    t.integer "in_reply_to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
-    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id", "created_at", "in_reply_to"], name: "index_microposts_on_user_id_and_created_at_and_in_reply_to"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
