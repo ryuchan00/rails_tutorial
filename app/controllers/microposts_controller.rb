@@ -4,32 +4,15 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
-    # 正規表現で、リプライユーザーを指定しているか
     if @micropost.content.match(/(^@|\s@|\W@)([a-zA-Z0-9]+)(\s|\n|$)/)
       reply_user = @micropost.content.match(/(^@|\s@|\W@)([a-zA-Z0-9]+)(\s|\n|$)/)[2]
-      # 対象リプライユーザーがDBに存在するか
       if reply_user.present? and User.exists?(name: reply_user)
-        # 対象ユーザーIDを取得するためにオブジェクトをfind_by
         reply_user_info = User.find_by(name: reply_user)
-        # 対象ユーザーのIDを@micropostオブジェクトに代入
         @micropost.in_reply_to = reply_user_info.id
       end
     end
     # 複数人に返信する場合はこれを使う
     # reply_users = @micropost.content.scan(/@([a-zA-Z0-9]+)\s/)
-    # if reply_users.present?
-    #   reply_users.each do |reply_user|
-    #     p reply_user
-    #     if User.exists?(name: reply_user[0].to_s) then
-    #       @micropost.in_reply_to = true
-          # debugger
-        # else
-          # debugger
-          # reply_users.delete(reply_user)
-        # end
-      # end
-    # end
-    # debugger
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
