@@ -101,6 +101,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  # フォロワーの増加を知らせるメールを送信する
+  def send_add_follower_email(follower)
+    UserMailer.add_follower(self, follower).deliver_now
+  end
+
   # 試作feedの定義
   # 完全な実装は次章の「ユーザーをフォローする」を参照
   # このidは、チェーンメソッド元のオブジェクトのID
