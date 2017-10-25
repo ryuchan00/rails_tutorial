@@ -1,6 +1,15 @@
-<h1>User#add_follower</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+
+<h1>フォロワー追加のお知らせ</h1>
 
 <p>
   <%= @follower.name %>さんが、あなたをフォローしました！
 </p>
 <a href="<%= user_url(@follower) %>"><%= @follower.name %>さんのページ</a>
+</body>
+</html>

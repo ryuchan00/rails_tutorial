@@ -16,4 +16,12 @@ class UserMailerPreview < ActionMailer::Preview
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
   end
+
+  # Preview this email at
+  # http://localhost:3000/rails/mailers/user_mailer/add_follower
+  def add_follower
+    user = User.first
+    follower = User.second
+    UserMailer.add_follower(user, follower)
+  end
 end

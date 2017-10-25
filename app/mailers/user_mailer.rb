@@ -24,7 +24,7 @@ class UserMailer < ApplicationMailer
   #
   def password_reset(user)
     @user = user
-    mail to: user.email, suject: "Password reset"
+    mail to: user.email, subject: "Password reset"
     # @greeting = "Hi"
     #
     # mail to: "to@example.org"
@@ -33,6 +33,6 @@ class UserMailer < ApplicationMailer
   def add_follower(user, follower)
     @user = user
     @follower = follower
-    mail to: user.email, suject: "フォロワーの通知"
+    mail to: user.email, subject: "フォロワー追加のお知らせ"
   end
 end
