@@ -16,6 +16,16 @@ class UsersController < ApplicationController
     redirect_to root_url and return unless @user.activated
   end
 
+  def feed
+    @user = User.find(params[:id])
+    @microposts = @user.microposts.limit(50)
+    # 同じアクション内でrender または redirect_to メソッドを複数呼び出すと、エラーになるので、and returnを付ける
+    redirect_to root_url and return unless @user.activated
+    respond_to do |format|
+      format.rss
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -24,12 +34,7 @@ class UsersController < ApplicationController
     # @user = User.new(params[:user])
     @user = User.new(user_params)
     if @user.save
-      # log_in @user
-      # flash[:success] = "Welcome to the Sample App!"
-      # redirect_to user_url(@user)と
-      # redirect_to @user
       @user.send_activation_email
-      # UserMailer.account_activation(@user).deliver_now
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
@@ -38,7 +43,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # @user = User.find(params[:id])
   end
 
   def update
@@ -55,9 +59,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
-  end
-
-  def setting
   end
 
   def change_notify

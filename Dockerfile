@@ -2,6 +2,7 @@ FROM ruby:2.4.2
 
 ENV RAILS_ENV development
 ENV APP_ROOT /var/www
+ENV DOMAIN http://localhost:3000
 
 WORKDIR $APP_ROOT
 

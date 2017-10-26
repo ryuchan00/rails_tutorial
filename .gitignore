@@ -26,3 +26,7 @@ spring/*.pid
 UserData
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
