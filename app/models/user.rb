@@ -132,6 +132,14 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
+  def self.param
+    params[:client_id_token]
+  end
+
+  def self.test
+    p "test"
+  end
+
   private
 
     # メールアドレスをすべて小文字にする
