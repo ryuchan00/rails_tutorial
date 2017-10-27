@@ -20,6 +20,14 @@
         <input class="notify_add_follower" type="checkbox" <%= @user.notify_add_follower ? "checked" : "" %> data-toggle="toggle" data-on="送信する" data-off="送信しない" data-onstyle="success" data-offstyle="danger">
       </label>
     </div>
+    <div class="client">
+      <%= form_for(@user) do |f| %>
+          <%= f.label :client_id_token %>
+          <%= f.text_field :client_id_token, class: 'form-control', :readonly => true %>
+          <%= f.label :client_secret_token %>
+          <%= f.text_field :client_secret_token, class: 'form-control', :readonly => true %>
+      <% end %>
+    </div>
   </div>
 </div>
 
