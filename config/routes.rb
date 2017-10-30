@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 
-  mount V1::Users => '/'
-  mount V2::Users => '/'
+  # mount V1::Users => '/'
+  # mount V2::Users => '/'
+  mount API::Root => '/'
 end
+

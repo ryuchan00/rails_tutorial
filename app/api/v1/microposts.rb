@@ -6,9 +6,9 @@ module V1
 
     resource :microposts do
       get do
-        # User.all
-        user = User.find_by(client_id_token: params[:client_id_token])
-        Micropost.find_by(user_id: user.id)
+        User.all
+        # user = User.find_by(client_id_token: params[:client_id_token])
+        # Micropost.find_by(user_id: user.id)
       end
 
       # params do

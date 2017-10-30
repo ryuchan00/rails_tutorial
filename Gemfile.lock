@@ -229,6 +229,8 @@ GEM
       rack (>= 1.3.0)
       rack-accept
       virtus (>= 1.0.0)
+    grape-swagger (0.27.3)
+      grape (>= 0.16.2)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -334,7 +336,7 @@ GEM
       nokogiri (~> 1.5)
       trollop (~> 2.1)
     ruby-progressbar (1.9.0)
-    sass (3.5.2)
+    sass (3.5.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -366,7 +368,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
@@ -398,7 +400,8 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   faker (= 1.7.3)
   fog (= 1.40.0)
-  grape
+  grape (>= 0.16.2)
+  grape-swagger
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
   jbuilder (= 2.7.0)
