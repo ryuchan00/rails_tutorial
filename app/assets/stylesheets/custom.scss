@@ -76,6 +76,25 @@ p {
   }
 }
 
+.search-form {
+  padding-top: 15px;
+  display: inline-block;
+  width: 200px;
+  input {
+    height: 30px;
+    line-height: 30px;
+  }
+  #search {
+    margin: 0;
+    padding: 0;
+  }
+  button {
+    box-sizing: border-box;
+    height: 30px;
+    line-height: 100%;
+  }
+}
+
 /* footer */
 
 footer {
