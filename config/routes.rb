@@ -31,5 +31,10 @@ Rails.application.routes.draw do
   # mount V1::Users => '/'
   # mount V2::Users => '/'
   mount API::Root => '/'
+  # APIのルーティングを設定
+  # mount API => '/'
+  # Swaggerのドキュメントルートを追記
+  # mount GrapeSwaggerRails::Engine => '/docs'
+
 end
 

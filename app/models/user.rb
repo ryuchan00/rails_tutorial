@@ -154,12 +154,12 @@ class User < ApplicationRecord
       self.activation_digest = User.digest(activation_token)
     end
 
-  def create_client_digest
-    # ユーザーIDトークンとユーザーIDダイジェスト
-    # アクセストークンとアクセスダイジェストを作成および代入する
-    self.client_id_token = User.digest(id)
-    self.client_secret_token =  User.new_token
-    self.client_secret_digest =  User.digest(client_secret_token)
-    self.save
-  end
+    def create_client_digest
+      # ユーザーIDトークンとユーザーIDダイジェスト
+      # アクセストークンとアクセスダイジェストを作成および代入する
+      self.client_id_token = User.digest(id)
+      self.client_secret_token =  User.new_token
+      self.client_secret_digest =  User.digest(client_secret_token)
+      self.save
+    end
 end

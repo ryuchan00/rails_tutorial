@@ -5,6 +5,7 @@ module V1
     format :json
     mount V1::Users
     mount V1::Microposts
-    add_swagger_documentation
+    mount V1::Relationships
+    # add_swagger_documentation
   end
 end
