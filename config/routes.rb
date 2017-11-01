@@ -26,15 +26,11 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :microposts, only: [:create, :destroy]
+  get '/microposts/search', to: 'microposts#search'
   resources :relationships, only: [:create, :destroy]
 
   # mount V1::Users => '/'
   # mount V2::Users => '/'
   mount API::Root => '/'
-  # APIのルーティングを設定
-  # mount API => '/'
-  # Swaggerのドキュメントルートを追記
-  # mount GrapeSwaggerRails::Engine => '/docs'
-
 end
 

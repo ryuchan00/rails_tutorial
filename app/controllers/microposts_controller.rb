@@ -2,6 +2,16 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user, only: :destroy
 
+  def search
+    @feed_items = []
+    if params[:search]
+    # @feed_items = Micropost.joins(:user).where(content: params[:search], users: {activated: true}).paginate(page: params[:page])
+    @feed_items = Micropost.joins(:user).where('users.activated = "t" AND content LIKE(?)', "%#{params[:search]}%").paginate(page: params[:page])
+    else
+      redirect_to root_url
+    end
+  end
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.content.match(/(^@|\s@|\W@)([a-zA-Z0-9]+)(\s|\n|$)/)
